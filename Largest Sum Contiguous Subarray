@@ -7,17 +7,27 @@ void Contiguous(int a[],int n)
     int i,j,sum;
     sum=INT_MIN;
     int maxsum_here=0;
+    int start=0,end=0,s=0;
     
     for(i=0;i<n;i++)
     {
         maxsum_here=maxsum_here+a[i];
+        
         if(maxsum_here>sum)
-          sum=maxsum_here;
-        if(maxsum_here<=0)
-          maxsum_here=0;
+          {
+             sum=maxsum_here;
+             end=i;
+             start=s;
+          }
+        if(maxsum_here<0)
+          {
+             maxsum_here=0;
+             s=i+1;
+          }
+          
         
     }
-    cout<<sum;
+    cout<<sum<<"\n"<<"start-"<<start<<"\n"<<"end-"<<end;;
 }
 int main() 
 {
